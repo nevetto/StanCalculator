@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+    
+</head>
+<body>
+    <div class="container" style="border: 5px solid #011327;border-radius: 15px; background-color: #011327; width: 385px; margin-top: 35px; padding-bottom: 35px;">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div id="dem" style="color: #2CB028;padding-top: 15px; text-align: center;"></div>
+                
+                <div id="demo" style="color: #F80E0A;padding-bottom: 15px; text-align: center;"></div>
+                
+
+                <div class="col-12">
+                        <input type="text"  id="btn" style="width: 305px; height: 40px; text-align: center; font-size: large;font-weight: normal; background-color: #011327; color: white; border: none;" placeholder="0">
+                        <input id="mybtn2" type="text" style="width: 305px; height: 40px; text-align: center; font-size: x-large; font-weight: bold; background-color:  #011327; color: white; border: none;">
+                </div>
+                <div  class="container">
+                    <div class="col-12" >
+                        <button class="btnbtn"  type="button"  style="background-color: #F80E0A;" onclick="del()">C</button>
+                        <button class="btnbtn" type="button"   style="background-color: #F80E0A;padding: 15px 18px;" value="Clear Fields"  onclick="lear()">CE</button>
+                        <button class="btnbtn" type="button" style="background-color: #32546F; padding: 15px 18px;" onclick="minPl()">+-</button>
+                        <button class="btnbtn" type="button" style="background-color: #32546F;" id="mult" onclick="operat('*')">*</button>
+                    </div>
+    
+                    <div class="col-12">
+                        <button class="btnbtn" id="func"  type="button" style="background-color: #648A97;" onclick="myBtn(7)">7</button>
+                        <button class="btnbtn" id="func"  type="button" style="background-color: #648A97;"  onclick="myBtn(8)">8</button>
+                        <button class="btnbtn" type="button" style="background-color: #648A97;"  onclick="myBtn(9)"> 9</button>
+                        <button class="btnbtn" type="button" style="background-color: #32546F;" onclick="operat('/')">/</button>
+                    </div>
+    
+                    <div class="col-12">
+                        <button class="btnbtn" type="button" style="background-color: #648A97;"  onclick="myBtn(4)">4</button>
+                        <button class="btnbtn" type="button" style="background-color: #648A97;"  onclick="myBtn(5)">5</button>
+                        <button class="btnbtn" type="button" style="background-color: #648A97;"  onclick="myBtn(6)">6</button>
+                        <button class="btnbtn" type="button" style="background-color: #32546F; padding: 15px 22px;" onclick="operat('+')">+</button>
+                    </div>
+                    <div class="col-12">
+                        <button class="btnbtn" type="button" style="background-color: #648A97;"  onclick="myBtn(1)">1</button>
+                        <button class="btnbtn" type="button" style="background-color: #648A97;"  onclick="myBtn(2)">2</button>
+                        <button class="btnbtn" type="button" style="background-color: #648A97;"  onclick="myBtn(3)">3</button>
+                        <button class="btnbtn" type="button" style="background-color: #32546F;" onclick="operat('-')">-</button>
+                    </div>
+    
+                    <div class="col-12">
+                        <button class="btnbtn" type="button" style="background-color: #648A97;padding: 15px 28px;" onclick="myBtn('.')">.</button>
+                        <button class="btnbtn" type="button" style="background-color: #648A97;"  onclick="myBtn(0)">0</button>
+                        <button class="btnbtn" type="button" style="background-color: #648A97; padding: 15px 21px;" onclick="operat('%')">%</button>
+                        <button class="btnbtn" id="eqls"  type="button" style="background-color: #2CB028; padding: 15px 22px;" onclick="eva()">=</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+var today = new Date();
+
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+document.getElementById('dem').innerHTML=date;
+
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        document.getElementById('demo').innerText=time;
+       
+
+         
+        
+        function myBtn(a) {
+            btn.value +=a;        
+        }
+
+        function operat(ope) {
+            btn.value +=ope;
+        }
+       
+function lear(){
+    btn.value = '';
+    mybtn2.value = '';
+}
+
+function eva(){
+    mybtn2.value = eval(btn.value);
+}
+
+function del(){
+    btn.value = btn.value.slice(0 , -1);
+    mybtn2.value = '';
+}
+
+function minPl() {
+    btn.value = '-' + btn.value;
+}
+
+
+          
+
+  </script>
+</body>
+</html>
